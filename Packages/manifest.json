@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "16.0.4",
+    "jp.keijiro.klak.cosinegradient": "1.1.0",
+    "jp.keijiro.vfxgraphassets": "1.2.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro"
+      ]
+    }
+  ]
+}
