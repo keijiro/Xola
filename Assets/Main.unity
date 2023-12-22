@@ -374,6 +374,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Material>k__BackingField: {fileID: -876546973899608171, guid: 43445d65915624e1087c30e6f2c7ecf9, type: 3}
+  <Gradient>k__BackingField:
+    R:
+      x: 0.66
+      y: 0.36
+      z: 1
+      w: 0
+    G:
+      x: 0.35
+      y: 0.37
+      z: 0.51
+      w: 0.33333334
+    B:
+      x: 0.5
+      y: 0.5
+      z: 1
+      w: 0.6666667
 --- !u!1 &2105627132
 GameObject:
   m_ObjectHideFlags: 0
