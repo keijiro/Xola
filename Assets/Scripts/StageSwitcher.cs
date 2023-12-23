@@ -22,11 +22,14 @@ public sealed class StageSwitcher : MonoBehaviour
 
     int? CheckStageInvocation()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha0)) return 0;
+
         for (var i = 0; i < 9; i++)
         {
             var key = (KeyCode)((int)KeyCode.Alpha1 + i);
-            if (Input.GetKeyDown(key)) return i;
+            if (Input.GetKeyDown(key)) return i + 1;
         }
+
         return null;
     }
 
