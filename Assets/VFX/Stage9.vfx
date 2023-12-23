@@ -855,7 +855,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 32
+      m_SerializableObject: 24
     m_Space: -1
   m_Property:
     name: Count
@@ -2116,7 +2116,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":1.0,"g":1.0,"b":1.0,"a":1.0}'
+      m_SerializableObject: '{"r":6.971341133117676,"g":13.756783485412598,"b":14.928528785705567,"a":1.0}'
     m_Space: -1
   m_Property:
     name: _Color
@@ -6392,7 +6392,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":4.0,"y":3.0,"z":8.0}}'
+      m_SerializableObject: '{"position":{"x":4.0,"y":3.0,"z":12.0}}'
     m_Space: 0
   m_Property:
     name: B
@@ -7287,7 +7287,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.025
+      m_SerializableObject: 0.02
     m_Space: -1
   m_Property:
     name: Size
@@ -7386,7 +7386,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":1.0,"y":1.0,"z":1.0}'
+      m_SerializableObject: '{"x":6.337584018707275,"y":29.857057571411134,"z":28.711179733276368}'
     m_Space: -1
   m_Property:
     name: Color
