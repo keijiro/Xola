@@ -39,6 +39,8 @@ public sealed class StageSwitcher : MonoBehaviour
 
     async void Start()
     {
+        var idKill = Shader.PropertyToID("Kill");
+
         var bg = Camera.main.GetComponent<GradientBackgroundController>();
         var current = Stages[0];
         var next = (StageConfig)null;
@@ -52,7 +54,11 @@ public sealed class StageSwitcher : MonoBehaviour
                 if (inv != null) next = Stages[(int)inv];
             }
 
-            foreach (var vfx in EnumerateVfx(current)) vfx.Stop();
+            foreach (var vfx in EnumerateVfx(current))
+            {
+                if (vfx.HasBool(idKill)) vfx.SetBool(idKill, true);
+                vfx.Stop();
+            }
 
             var grad0 = current.Background;
             var grad1 = next.Background;
@@ -63,7 +69,11 @@ public sealed class StageSwitcher : MonoBehaviour
                 await Awaitable.NextFrameAsync();
             }
 
-            foreach (var vfx in EnumerateVfx(next)) vfx.Play();
+            foreach (var vfx in EnumerateVfx(next))
+            {
+                if (vfx.HasBool(idKill)) vfx.SetBool(idKill, false);
+                vfx.Play();
+            }
 
             current = next;
             next = null;
