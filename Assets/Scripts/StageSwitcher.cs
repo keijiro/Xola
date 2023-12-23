@@ -48,6 +48,10 @@ public sealed class StageSwitcher : MonoBehaviour
         var current = Stages[0];
         var next = (StageConfig)null;
 
+        #if !UNITY_EDITOR
+        Cursor.visible = false;
+        #endif
+
         while (true)
         {
             while (next == null)
