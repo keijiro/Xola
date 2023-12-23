@@ -2302,19 +2302,19 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: -876546973899608171, guid: 43445d65915624e1087c30e6f2c7ecf9, type: 3}
   <Gradient>k__BackingField:
     R:
-      x: 0.1
-      y: 0.08
-      z: 0.73
+      x: 0
+      y: 0
+      z: 0
       w: 0
     G:
-      x: 0.19
-      y: 0.13
-      z: 0.51
-      w: 0.25
+      x: 0
+      y: 0
+      z: 0
+      w: 0
     B:
-      x: 0.24
-      y: 0.12
-      z: 1.48
+      x: 0
+      y: 0
+      z: 0
       w: 0
 --- !u!1 &2075488743
 GameObject:
