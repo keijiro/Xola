@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 using Klak.Chromatics;
 
@@ -14,6 +15,8 @@ public sealed class StageSwitcher : MonoBehaviour
     #endregion
 
     #region Private methods
+
+    static int _idKill = Shader.PropertyToID("Kill");
 
     CosineGradient Lerp(in CosineGradient g1, in CosineGradient g2, float t)
       => new CosineGradient { R = math.lerp(g1.R, g2.R, t),
@@ -36,14 +39,30 @@ public sealed class StageSwitcher : MonoBehaviour
     VisualEffect[] EnumerateVfx(StageConfig stage)
       => stage.transform.GetComponentsInChildren<VisualEffect>();
 
+    void StartVfx(StageConfig stage)
+    {
+        foreach (var vfx in EnumerateVfx(stage))
+        {
+            if (vfx.HasBool(_idKill)) vfx.SetBool(_idKill, false);
+            vfx.Play();
+        }
+    }
+
+    void StopVfx(StageConfig stage)
+    {
+        foreach (var vfx in EnumerateVfx(stage))
+        {
+            if (vfx.HasBool(_idKill)) vfx.SetBool(_idKill, true);
+            vfx.Stop();
+        }
+    }
+
     #endregion
 
     #region MonoBehaviour implementation
 
     async void Start()
     {
-        var idKill = Shader.PropertyToID("Kill");
-
         var bg = Camera.main.GetComponent<GradientBackgroundController>();
         var current = Stages[0];
         var next = (StageConfig)null;
@@ -59,13 +78,10 @@ public sealed class StageSwitcher : MonoBehaviour
                 await Awaitable.NextFrameAsync();
                 var inv = CheckStageInvocation();
                 if (inv != null) next = Stages[(int)inv];
+                if (Input.GetKeyDown(KeyCode.Space)) StopVfx(current);
             }
 
-            foreach (var vfx in EnumerateVfx(current))
-            {
-                if (vfx.HasBool(idKill)) vfx.SetBool(idKill, true);
-                vfx.Stop();
-            }
+            StopVfx(current);
 
             var grad0 = current.Background;
             var grad1 = next.Background;
@@ -76,15 +92,17 @@ public sealed class StageSwitcher : MonoBehaviour
                 await Awaitable.NextFrameAsync();
             }
 
-            foreach (var vfx in EnumerateVfx(next))
-            {
-                if (vfx.HasBool(idKill)) vfx.SetBool(idKill, false);
-                vfx.Play();
-            }
+            StartVfx(next);
 
             current = next;
             next = null;
         }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(0);
     }
 
     #endregion
